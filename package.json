@@ -1,0 +1,21 @@
+{
+  "name": "episode-02---igniting-our-app",
+  "version": "1.0.0",
+  "description": "react",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "gopi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
