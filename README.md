@@ -44,7 +44,7 @@ cdn link is not preferred way to bring react into project, its better to have in
 now no longer need the cdn link
 import react and react-dom from node-modules.
 add type='module for script tag to accept import/export
-you can build your app using parcel, (npx parcel build index.html). remove the package.json file main:app.js line. 
+you can build your app using parcel, (npx parcel build index.html). remove in package.json file main:app.js line. 
 add browserlist in package.json using package. browserlists
 finally we created create-react-app by ourself.
 
