@@ -16,7 +16,7 @@ export const resList = [
               "Chinese",
               "North Indian"
             ],
-            "avgRating": 4.3,
+            "avgRating": 3.3,
             "parentId": "332",
             "avgRatingString": "4.3",
             "totalRatingsString": "1.7K+",
@@ -133,7 +133,7 @@ export const resList = [
             "cuisines": [
               "Mughlai"
             ],
-            "avgRating": 4.4,
+            "avgRating": 3.4,
             "parentId": "588",
             "avgRatingString": "4.4",
             "totalRatingsString": "40K+",
