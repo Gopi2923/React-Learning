@@ -15,9 +15,9 @@ const Body = () => {
         ); setRestaurantList(filterList)}}>Top Rated Restaurants</button>
       </div>
       <div className='res-container'>
-       {
-        restaurantList.map((restaturant) => (<RestaurantCard key={restaturant.card.card.info.id} resData={restaturant}/> ))
-       }
+      {
+        restaurantList.map((restaurant) => (<RestaurantCard key={restaurant.card.card.info.id} resData={restaurant}/>))
+      }
 
       </div>
     </div>
