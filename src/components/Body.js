@@ -46,15 +46,13 @@ const Body = () => {
             console.log(searchText)
 
             const searchFilterData = restaurantList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-
-            setFilteredList(searchFilterData);
+            setFilteredList(searchFilterData)
 
           }}>Search</button>
         </div>
         <button className="filter-btn" onClick={() => {
-          const filterList = restaurantList.filter(
-            (res) => (res.info.avgRating > 4.5)
-          ); setFilteredList(filterList)
+         const filterList = restaurantList.filter((res) => (res.info.avgRating > 4.5));
+         setFilteredList(filterList)
         }}>Top Rated Restaurants</button>
       </div>
       <div className='res-container'>
