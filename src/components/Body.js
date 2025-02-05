@@ -5,17 +5,23 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
 
-  //Local State Variable - Super Powerfull variable
+   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
+  // * useState() - Super Powerful variable
+  // * useEffect() -
+
+  // * State Variable - Super Powerful variable
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
 
+    // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   console.log(searchText);
   console.log('body render');
 
   useEffect(() => {
     fetchData()
+    fetchMoreData()
   }, []);
 
   const fetchData = async () => {
@@ -23,11 +29,28 @@ const Body = () => {
 
     const json = await data.json()
     console.log(json)
-    //Optional Chaining
+     // * optional chaining
+    
     setRestaurantList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
+  const fetchMoreData = async () => {
+    try {
+      const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+      const json = await data.json();
+      console.log(json);
+      setRestaurantList(json?.data?.cards[0]?.card?.gridElements?.infoWithStyle?.restaurants || []);
+      setFilteredList(json?.data?.cards[0]?.card?.gridElements?.infoWithStyle?.restaurants || []);
+    } catch (error) {
+      console.error('Error fetching more data:', error);
+    }
+  };
   //Conditional Rendering
   // if (restaurantList.length === 0) {
   //   return <Shimmer />
@@ -57,7 +80,7 @@ const Body = () => {
       </div>
       <div className='res-container'>
         {
-          filteredList.map((restaurant, index) => (<RestaurantCard key={index} resData={restaurant} />))
+          filteredList.map((restaurant) => (<RestaurantCard key={restaurant.info.id} resData={restaurant} />))
         }
 
       </div>
