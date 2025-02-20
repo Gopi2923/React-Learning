@@ -10,14 +10,14 @@ import ResaurantMenu from './components/RestaurantMenu';
 
 
 const styleCard = {
-  
+
 }
 
 const AppLayout = () => {
   return (
     <div className='app'>
-        <Header />
-        <Outlet />
+      <Header />
+      <Outlet />
     </div>
   )
 }
