@@ -9,6 +9,7 @@ const ResaurantMenu = () => {
 
     const { resId } = useParams();
     
+    console.log(resId)
     useEffect(() => {
         fetchData();
     }, []);

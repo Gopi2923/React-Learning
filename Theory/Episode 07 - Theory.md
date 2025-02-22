@@ -75,3 +75,17 @@ A: `Single Page Application (SPA)` is a web application that dynamically updates
 A: In `Server-side routing or rendering (SSR)`, every change in URL, http request is made to server to fetch the webpage, and replace the current webpage with the older one.
 
 In `Client-side routing or rendering (CSR)`, during the first load, the webapp is loaded from server to client, after which whenever there is a change in URL, the router library navigates the user to the new page without sending any request to backend. All `Single Page Applications uses client-side routing`.
+
+
+
+## Episode 07
+
+- if no dependency array => useEffect is called on every component render of the component
+- if the dependency array is empty => useEffect is called only on the initial render(just once) of the component
+- if the dependency array contains a dependency => useEffect is called everytime the value of the depencecy changes
+- Dependency: A depency can be a state variable (or) a function
+- Always create state variable in top of function - not outside of function component, conditional, for loop, or function inside.
+- createBrowserRouter, RouterProvider, useRouteError(reac-router-dom hook for error), Outlet(to replace the children component), Link
+- don't use anchor tag in react use Link tag from react-router
+- types of routing, client-side routing, server-side routing
+- useParams hooks
