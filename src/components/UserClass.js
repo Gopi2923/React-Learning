@@ -21,26 +21,29 @@ class UserClass extends React.Component {
         console.log(json)
 
          this.setState({
-            userInfo: {
-                name: json.name,
-                location: json.location,
-                contact: json.twitter_username,
-                image: json.avatar_url
-            }
+            userInfo: json
          })
         console.log('Child ComponentDidMount')
     }
 
+    componentDidUpdate() {
+        console.log('Component Did Update')
+    }
+
+    componentWillUnmount() {
+        console.log("Component Will Mount")
+    }
+
     render() {
-        const {name, location, contact, image} = this.state.userInfo;
+        const {name, location, bio, avatar_url} = this.state.userInfo;
 
         console.log('Child Render')
         return (
         <div className="user-card">
-        <img src={image} />
+        <img src={avatar_url} className="logo"/>
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
-        <h4>Contact: {contact}</h4>
+        <h4>Contact: {bio}</h4>
         </div>
         )
     }
