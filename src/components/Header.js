@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IMG_URL } from "../utils/constant";
+import { IMG_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Header = () => {
