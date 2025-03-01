@@ -33,3 +33,17 @@ The main difference between super() and super(props) is the this.props is undefi
 ## Q: (Research) Why can't we have the `callback function` of `useEffect async`?
 
 A: `useEffect` expects it's callback function to return nothing or return a function (cleanup function that is called when the component is unmounted). If we make the callback function as `async`, it will return a `promise` and the promise will affect the clean-up function from being called.
+
+
+## Episode 08
+
+- Class based components => end of the day its js class
+- Class extends React.Component and render() method returns some piece of JSX.
+- why do we write super(props) in class component?
+- Never update state variables directly
+- componentDidMount() used to make API call like how functional component uses useEffect()
+- react lifecycle method diagram
+- Mounting(render component) LifeCycle : constructor => render => update DOM => componentDidMount()
+- Updating(update component) LifeCycle : (when state changes) => render => update DOM => componentDidUpdate()
+- Unmounting(remove component) : componentWillMount()
+- Render Phase = Commit Phase
