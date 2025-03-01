@@ -33,6 +33,7 @@ const Header = () => {
             <li> <Link to='/'>Home</Link> </li>
             <li> <Link to='/about'> About Us </Link></li>
             <li> <Link to='/contact'> Contact Us</Link></li>
+            <li> <Link to='/grocery'>Grocery</Link></li>
             <li>Cart</li>
             {/* Ternary operator */}
             <button className="login-btn" onClick={() => {btnName === "Login" ? setBtnName("Logout") : setBtnName("Login"); console.log(btnName)}}>{btnName}</button>
