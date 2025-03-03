@@ -23,20 +23,20 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   
     return (
-      <div className='header'>
+      <div className='flex justify-between items-center bg-pink-200 shadow-lg mb-2 sm:bg-amber-200 lg:bg-green-200'>
         <div className='logo-container'>
-          <img className='logo' src={IMG_URL} />
+          <img className='w-56' src={IMG_URL} />
         </div>
         <div className='nav-link'> 
-          <ul>
-            <li>Online Status : {onlineStatus ? "✅" : "🔴"}</li>
-            <li> <Link to='/'>Home</Link> </li>
-            <li> <Link to='/about'> About Us </Link></li>
-            <li> <Link to='/contact'> Contact Us</Link></li>
-            <li> <Link to='/grocery'>Grocery</Link></li>
-            <li>Cart</li>
+          <ul className="flex">
+            <li className="px-4">Online Status : {onlineStatus ? "✅" : "🔴"}</li>
+            <li className="px-4"> <Link to='/'>Home</Link> </li>
+            <li className="px-4"> <Link to='/about'> About Us </Link></li>
+            <li className="px-4"> <Link to='/contact'> Contact Us</Link></li>
+            <li className="px-4"> <Link to='/grocery'>Grocery</Link></li>
+            <li className="px-4">Cart</li>
             {/* Ternary operator */}
-            <button className="login-btn" onClick={() => {btnName === "Login" ? setBtnName("Logout") : setBtnName("Login"); console.log(btnName)}}>{btnName}</button>
+            <button className="px-4" onClick={() => {btnName === "Login" ? setBtnName("Logout") : setBtnName("Login"); console.log(btnName)}}>{btnName}</button>
           </ul>
         </div>
       </div>
