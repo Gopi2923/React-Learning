@@ -13,15 +13,18 @@ const RestaurantCard = (props) => {
     } = resData?.info || {};
   
     return (
-      <div className='m-4 p-4 w-[250] bg-gray-100 hover:bg-gray-300'>
-        <div>
-          <img className='w-[200] rounded-2xl' alt='res-logo' src= {CDN_URL + cloudinaryImageId }/>
+      <div className='m-4 p-4 w-[250px] rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-200'>
+        <div className="mb-3">
+          <img className='w-full h-48 onject-cover rounded-2xl' alt='res-logo' src= {CDN_URL + cloudinaryImageId }/>
         </div>
-        <h3 className="font-bold text-2xl py-3">{name}</h3>
-        <h4 className="">{cuisines.join(', ')}</h4>
-        <h4>{avgRating}</h4>
-        <h4>{costForTwo}</h4>
-        <h4>{resData?.info?.sla?.deliveryTime} Minutes</h4>
+        <h3 className="font-bold text-2xl py-1 text-gray-800">{name}</h3>
+        <h4 className="text-sm text-gray-600 line-clamp-2">{cuisines.join(', ')}</h4>
+        <div className="flex items-center gap-2 mt-2">
+        <span  className="text-sm font-medium text-gray-500"><h4>{avgRating}</h4></span>
+        <span className="text-xs text-gray-500">★</span>
+        </div>
+        <h4 className="text-sm text-gray-700 mt-1">{costForTwo}</h4>
+        <h4 className="text-sm text-gray-600 mt-1">{resData?.info?.sla?.deliveryTime} Minutes</h4>
       </div>
     )
   }
