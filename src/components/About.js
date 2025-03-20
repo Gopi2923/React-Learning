@@ -3,11 +3,11 @@ import User from './User'
 import UserClass from './UserClass'
 
 
-class About extends React.Component{
+class About extends React.Component {
   constructor(props) {
-     super(props);
+    super(props);
 
-     console.log('Parent Constructor')
+    console.log('Parent Constructor')
   }
 
   componentDidMount() {
