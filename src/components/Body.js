@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { isPromoted } from "./RestaurantCard";
 import { resList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -16,6 +16,8 @@ const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardWithPromotion = isPromoted(RestaurantCard);
 
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   console.log(searchText);
@@ -44,7 +46,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus()
 
-  if(onlineStatus === false) {
+  if (onlineStatus === false) {
     return <h1>Looks like you're offline, Please check your internet connection</h1>
   }
 
@@ -65,7 +67,7 @@ const Body = () => {
 
           }}>Search</button>
         </div>
-        <button className="mx-8 px-5 py-0 cursor-pointer bg-gray-200 rounded" onClick={() => {
+        <button className="mx-8 px-5 py-0 h-10 mt-3 cursor-pointer bg-gray-200 rounded" onClick={() => {
           const filterList = restaurantList.filter((res) => (res.info.avgRating > 4.5));
           setFilteredList(filterList)
         }}>Top Rated Restaurants</button>
@@ -73,7 +75,7 @@ const Body = () => {
 
       <div className='flex flex-wrap'>
         {
-          filteredList.map((restaurant) => (<Link key={restaurant.info.id} to={'/restaurant/' + restaurant.info.id}> <RestaurantCard resData={restaurant} /> </Link>))
+          filteredList.map((restaurant) => (<Link key={restaurant.info.id} to={'/restaurant/' + restaurant.info.id}> {restaurant.info.promoted ? (<RestaurantCardWithPromotion resData={restaurant} />) : (<RestaurantCard resData={restaurant} />)} </Link>))
         }
 
       </div>
