@@ -29,6 +29,8 @@ const RestaurantCard = (props) => {
     )
   }
 
+  // Higher order component to add promotion label
+
   export const isPromoted = (RestaurantCard) => {
     return (props) => {
       return (
