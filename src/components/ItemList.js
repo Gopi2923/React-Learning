@@ -5,11 +5,11 @@ const ItemList = ({items}) => {
         <div> {items.map((item) => (
             <div key={item.card.info.id}>
                 <div>
-                    <span>{item.card.info.name}</span>
-                    <span>{item.card.info.defaultPrice}</span>
+                    <span>{item.card?.info?.name}</span>
+                    <span>{item.card?.info?.defaultPrice / 100}</span>
                 </div>
 
-                <span>{item.card.info.description}</span>
+                <span>{item.card?.info?.description}</span>
             </div>
 
         ))}
