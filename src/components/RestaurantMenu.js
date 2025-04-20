@@ -9,9 +9,11 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
     const resInfo = useRestaurantMenu(resId);
 
+    const [showIndex, setShowIndex] = useState(null);
+
     if (resInfo === null) return <Shimmer />
 
-    const {name, cuisines, costForTwoMessage, avgRating} = resInfo?.cards[2]?.card?.card?.info;
+    const { name, cuisines, costForTwoMessage, avgRating } = resInfo?.cards[2]?.card?.card?.info;
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
@@ -57,7 +59,12 @@ const RestaurantMenu = () => {
             </div> */}
 
             {/* Menu Categories */}
-            {categories.map((category) => (<RestaurantCategory key={category?.card?.card.title} data={category?.card?.card}/>))}
+            {/* controlled component */}
+            {categories.map((category, index) => (
+                <RestaurantCategory key={category?.card?.card.title} 
+                data={category?.card?.card} 
+                showItems={index === showIndex ? true : false} 
+                setShowIndex={() => setShowIndex(index)} />))}
         </div>
     );
 };
